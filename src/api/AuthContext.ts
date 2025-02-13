@@ -6,16 +6,15 @@ interface AuthContextProps {
   login: (username: string, password: string) => Promise<string | null>;
   logout: () => void;
   checkAuthStatus: () => void;
-  loading: boolean;  // Añadido estado de carga
+  loading: boolean;  
 }
 
-// ✅ Asegurar valores por defecto para evitar undefined
 export const AuthContext = createContext<AuthContextProps>({
   isAuthenticated: false,
   user: null,
   login: async () => null,
   logout: () => {},
   checkAuthStatus: () => {},
-  loading: true,  // Inicia como `true` hasta que se verifique la autenticación
+  loading: true, 
 });
 

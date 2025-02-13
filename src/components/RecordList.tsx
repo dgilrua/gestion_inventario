@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Swal from 'sweetalert2';
 import { getRecords, updateRecord, deleteRecord, Inventario } from '../api/records';
-import '../styles/RecordList.css';
 
 const RecordList: React.FC = () => {
   const [records, setRecords] = useState<Inventario[]>([]);

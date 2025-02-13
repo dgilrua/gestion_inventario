@@ -14,14 +14,14 @@ app.use(express.json());
 
 const jwtSecret = process.env.JWT_SECRET;
 
-// Configuración de Cloudinary
+
 cloudinary.config({
   cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
   api_key: process.env.CLOUDINARY_API_KEY,
   api_secret: process.env.CLOUDINARY_API_SECRET,
 });
 
-app.use(express.json({ limit: '50mb' })); // Puedes ajustar el tamaño según tus necesidades
+app.use(express.json({ limit: '50mb' }));
 app.use(express.urlencoded({ limit: '50mb', extended: true }));
 
 const storage = multer.memoryStorage();
@@ -40,7 +40,6 @@ app.use(cors({
   allowedHeaders: ['Content-Type', 'Authorization'],
 }));
 
-// Helper para subir el buffer a Cloudinary usando upload_stream
 const uploadFromBuffer = (buffer) => {
   return new Promise((resolve, reject) => {
     const stream = cloudinary.uploader.upload_stream((error, result) => {
@@ -54,7 +53,6 @@ const uploadFromBuffer = (buffer) => {
   });
 };
 
-// Middleware para verificar autenticación
 const authenticateToken = (req, res, next) => {
   const token = req.header('Authorization');
   if (!token) return res.status(401).json({ message: 'Acceso denegado' });
@@ -140,17 +138,15 @@ app.post('/api/records', authenticateToken, upload.single('imagen'), async (req,
   const fecha = new Date();
 
   try {
-    let imagenUrl; // Aquí almacenaremos la URL devuelta por Cloudinary
-
+    let imagenUrl; 
     if (req.file) {
-      // Sube la imagen a Cloudinary
       const uploadResult = await uploadFromBuffer(req.file.buffer);
       imagenUrl = uploadResult.secure_url;
     }
 
     const newRecord = new Record({
       nombre,
-      imagen: imagenUrl, // Guarda la URL o undefined si no se subió imagen
+      imagen: imagenUrl, 
       cantidad,
       ubicacion,
       tipo,
@@ -188,7 +184,6 @@ app.put('/api/records/:id', authenticateToken, upload.single('imagen'), async (r
     let imagenUrl;
 
     if (req.file) {
-      // Sube la nueva imagen a Cloudinary
       const uploadResult = await uploadFromBuffer(req.file.buffer);
       imagenUrl = uploadResult.secure_url;
     }

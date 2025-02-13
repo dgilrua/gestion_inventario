@@ -12,7 +12,7 @@ const CreateRecord: React.FC = () => {
   const [serial, setSerial] = useState<string>('');
   const [estado, setEstado] = useState<string>('');  
 
-  const navigate = useNavigate(); // Para redirigir después de crear el registro
+  const navigate = useNavigate(); 
 
   const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
@@ -30,8 +30,7 @@ const CreateRecord: React.FC = () => {
     }
   
     try {
-      console.log({ nombre, cantidad, imagenFile, ubicacion, tipo, observaciones, serial, estado}); // Verifica los valores antes de enviar
-      // Obtener el token del localStorage
+      console.log({ nombre, cantidad, imagenFile, ubicacion, tipo, observaciones, serial, estado}); 
 
       const formData = new FormData();
       formData.append('nombre', nombre);

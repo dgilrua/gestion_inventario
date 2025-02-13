@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import Swal from 'sweetalert2';
 import { useParams, useNavigate } from 'react-router-dom';
-import { getRecords, updateRecord } from '../api/records'; // Importa las funciones necesarias
+import { getRecords, updateRecord } from '../api/records'; 
 
 const EditRecord: React.FC = () => {
   const [nombre, setNombre] = useState<string>('');
   const [imagenFile, setImagenFile] = useState<File | null>(null);
-  const [previewImage, setPreviewImage] = useState<string>(''); // Para mostrar la imagen actual o la nueva
+  const [previewImage, setPreviewImage] = useState<string>(''); 
   const [cantidad, setCantidad] = useState<number>(0);
   const [ubicacion, setUbicacion] = useState<string>('');
   const [tipo, setTipo] = useState<string>('');
@@ -88,7 +88,6 @@ const EditRecord: React.FC = () => {
 
     try {
       console.log('Enviando datos actualizados...');
-      // updateRecord debe enviar la petición usando FormData sin forzar el header Content-Type
       await updateRecord(id!, formData, token);
       Swal.fire('Actualizado', 'El registro ha sido actualizado.', 'success');
       navigate('/records');

@@ -2,7 +2,6 @@ import React, { useState, useEffect, useCallback, ReactNode } from 'react';
 import { AuthContext } from './AuthContext';
 import axios from 'axios';
 
-// ✅ Definir el tipo de las props
 interface AuthProviderProps {
   children: ReactNode;
 }

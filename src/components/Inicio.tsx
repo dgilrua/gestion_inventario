@@ -1,8 +1,8 @@
 const Inicio: React.FC = () => {
     return (
       <div className="cuerpoInicio">
-        <h1>Sistema de Registros Kevents</h1>
-        <p>¡Hola!, Maneja tus registros de forma facil y sencilla con nuestro sistema de CRUD APP de Kevents</p>
+        <h1>Gestion de inventarios</h1>
+        <p>No se que poner aca</p>
       </div>
     );
   }

@@ -8,7 +8,6 @@ import Login from './components/Login';
 import Register from './components/Register';
 import { AuthContext } from './api/AuthContext';
 import Footer from './components/Footer'; // Asegúrate de importar el componente Footer
-import './App.css';
 
 const PrivateRoute: React.FC<{ element: JSX.Element }> = ({ element }) => {
   const authContext = useContext(AuthContext);
@@ -25,14 +24,15 @@ const App: React.FC = () => {
   }
 
   return (
-    <div>
-      <nav style={{marginBottom: "50px"}}>
-        <ul>
+    <main className=''>
+      <nav className={`flex bg-gray-50 text-gray-900`}>
+        hola
+        <ul className={`flex flex-col w-full h-full py-7 px-9 bg-gray-200`}>
           <li><a href="/">Inicio</a></li>
           {authContext?.isAuthenticated ? (
             <>
-              <li><a href="/create">Crear Nuevo Evento</a></li>
-              <li><a href="/records">Eventos</a></li>
+              <li><a href="/create">Registrar nuevo item</a></li>
+              <li><a href="/records">Inventario</a></li>
               <li>Bienvenido, {authContext.user?.username} <button onClick={authContext.logout}>Cerrar Sesión</button></li>
             </>
           ) : (
@@ -53,7 +53,7 @@ const App: React.FC = () => {
         <Route path="/register" element={<Register />} />
       </Routes>
       <Footer />
-    </div>
+    </main>
   );
 };
 
