@@ -34,7 +34,7 @@ Este es un sistema de gestión de inventario para el aula STEAM de una universid
 ### 🔹 Clonar el repositorio
 
 ~~~bash
-git clone https://github.com/tu-usuario/tu-repo.git
+git clone https://github.com/dgilrua/gestion_inventario
 cd tu-repo
 ~~~
 
@@ -174,8 +174,7 @@ const uploadImage = async (req, res) => {
 
 ## 👥 Autores
 
-- **[Tu Nombre]** - _Desarrollador_
-- **[Otros Colaboradores]**
+- David - _Desarrollador_
 
 ---
 
