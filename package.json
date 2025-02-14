@@ -10,14 +10,14 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@tailwindcss/vite": "^4.0.5",
+    "@tailwindcss/vite": "^4.0.6",
     "axios": "^1.7.9",
     "mongoose": "^8.9.1",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-router-dom": "^7.0.2",
     "sweetalert2": "^11.15.2",
-    "tailwindcss": "^4.0.5"
+    "tailwindcss": "^4.0.6"
   },
   "devDependencies": {
     "@eslint/js": "^9.15.0",
